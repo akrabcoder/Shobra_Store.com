@@ -4,634 +4,739 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#111111">
+<meta name="theme-color" content="#101010">
+<meta name="description" content="SHUBRA STORE — اكتشف ستايلك، وارتدِ شخصيتك. أزياء وأحذية عصرية.">
 <title>SHUBRA STORE | Wear Your Identity</title>
-<meta name="description" content="SHUBRA STORE - اكتشف أحدث صيحات الملابس والأحذية والإكسسوارات.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#f5f3ee;--paper:#fffefa;--ink:#171717;--muted:#77756f;
-  --line:#e7e3dc;--accent:#c8a878;--dark:#111;--radius:18px;
+ --bg:#f5f3ee;--surface:#fff;--text:#171714;--muted:#77766f;
+ --line:#e4e1d9;--accent:#c7ff45;--accent-text:#11140a;
+ --card:#eeece5;--shadow:0 18px 55px #0000000b;
+ --radius:20px;--header:76px
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:"Cairo",sans-serif}
-body.no-scroll{overflow:hidden}
-button,input,select{font:inherit}
+[data-theme="dark"]{
+ --bg:#11120f;--surface:#1a1b17;--text:#f5f5ef;--muted:#a5a69b;
+ --line:#30312a;--card:#23241e;--shadow:0 18px 55px #00000028
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Cairo",sans-serif;transition:background .25s,color .25s}
+body,button,input,select,textarea{font-family:"Cairo",sans-serif}
 button{cursor:pointer}
-a{text-decoration:none;color:inherit}
-img{display:block;width:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button,input,select,textarea{font-size:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #8bbf19;outline-offset:3px}
 .container{width:min(1240px,92%);margin:auto}
-.english{font-family:"Montserrat",sans-serif}
-.announcement{background:#171717;color:#fff;text-align:center;padding:9px 12px;font-size:11px;letter-spacing:1.2px}
-.announcement span{color:#d9b98d}
-.topbar{height:78px;background:rgba(255,254,250,.96);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;backdrop-filter:blur(15px)}
-.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font:900 27px "Montserrat";letter-spacing:-1.8px;white-space:nowrap}
-.logo span{color:#b18d60}
-.navlinks{display:flex;align-items:center;gap:28px;font-size:13px;font-weight:700}
-.navlinks a{transition:.2s}
-.navlinks a:hover{color:#b18d60}
-.nav-actions{display:flex;gap:10px;align-items:center}
-.icon-btn{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:transparent;display:grid;place-items:center;font-size:17px;position:relative}
-.count{position:absolute;top:-4px;right:-4px;background:#171717;color:#fff;width:17px;height:17px;border-radius:50%;font:10px "Montserrat";display:grid;place-items:center}
-.menu-btn{display:none}
-.hero{padding:25px 0 55px}
-.hero-card{min-height:530px;background:#202020;position:relative;overflow:hidden;color:#fff;display:flex;align-items:center}
-.hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;opacity:.76}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.1) 90%)}
-.hero-content{position:relative;z-index:1;padding:55px 7%;max-width:650px}
-.eyebrow{font:700 11px "Montserrat";letter-spacing:3px;color:#d9b98d;margin-bottom:18px}
-.hero h1{font:900 clamp(44px,7vw,82px)/.98 "Montserrat";letter-spacing:-4px;margin-bottom:23px}
-.hero h1 span{color:#d8b88e}
-.hero p{font-size:15px;line-height:2;color:#e2e0dc;max-width:430px;margin-bottom:28px}
-.btn{border:1px solid var(--ink);background:var(--ink);color:#fff;padding:13px 24px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:13px;font-weight:800;transition:.25s}
-.btn:hover{background:var(--accent);border-color:var(--accent);color:#171717;transform:translateY(-2px)}
-.btn-light{background:#fff;color:#111;border-color:#fff}
-.btn-outline{background:transparent;color:var(--ink)}
-.btn-outline:hover{color:#fff}
-.hero-bottom{position:absolute;bottom:25px;left:7%;font:10px "Montserrat";letter-spacing:2px;color:#ddd}
-.section{padding:65px 0}
+.en{font-family:Montserrat,sans-serif}
+.topline{background:var(--accent);color:#15170f;text-align:center;padding:9px 12px;font-size:12px;font-weight:800;letter-spacing:.4px}
+header{position:sticky;top:0;z-index:50;background:var(--surface);border-bottom:1px solid var(--line)}
+.nav{height:var(--header);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font:900 24px Montserrat,sans-serif;letter-spacing:-1.5px;white-space:nowrap}
+.logo span{background:var(--accent);color:#171914;padding:4px 7px;margin-inline-start:4px;border-radius:4px}
+.navlinks{display:flex;gap:24px;align-items:center;font-size:13px;font-weight:700}
+.navlinks a:hover{color:#8abf20}
+.navtools{display:flex;gap:8px;align-items:center}
+.iconbtn{position:relative;width:41px;height:41px;display:grid;place-items:center;background:var(--bg);border:1px solid var(--line);border-radius:50%;color:var(--text);font-size:18px}
+.count{position:absolute;top:-4px;right:-3px;background:var(--accent);color:#15170f;min-width:18px;height:18px;border-radius:20px;font:700 10px Montserrat,sans-serif;display:grid;place-items:center;padding:0 4px}
+.langbtn{height:39px;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:22px;padding:0 12px;font-size:12px;font-weight:800}
+.hero{padding:30px 0 45px}
+.hero-grid{display:grid;grid-template-columns:1fr 1.03fr;gap:20px;min-height:490px}
+.hero-copy{border-radius:var(--radius);padding:clamp(28px,5vw,65px);background:var(--card);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;overflow:hidden}
+.eyebrow{display:flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:2px;font-size:10px;font-weight:900;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:#91c82b}
+.hero h1{font-size:clamp(40px,5.2vw,76px);line-height:1.1;letter-spacing:-2px;margin:25px 0 18px;font-weight:900}
+.hero h1 .highlight{position:relative;z-index:0;white-space:nowrap}
+.hero h1 .highlight:after{content:"";position:absolute;z-index:-1;bottom:2px;left:0;right:0;height:36%;background:var(--accent)}
+.hero-copy p{color:var(--muted);line-height:2;font-size:14px;max-width:380px;margin:0 0 27px}
+.btn{border:0;background:var(--text);color:var(--bg);padding:14px 23px;border-radius:30px;font-weight:800;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:transform .2s,opacity .2s}
+.btn:hover{transform:translateY(-2px);opacity:.9}
+.btn-accent{background:var(--accent);color:#14160d}
+.btn-outline{background:transparent;border:1px solid var(--line);color:var(--text)}
+.hero-photo{position:relative;border-radius:var(--radius);overflow:hidden;min-height:400px;background:#bbb}
+.hero-photo>img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+.photo-label{position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:end;justify-content:space-between;color:white;gap:12px;text-shadow:0 2px 10px #000}
+.photo-label strong{font:800 27px Montserrat,sans-serif;letter-spacing:-1px}
+.photo-label span{font-size:11px}
+.round-arrow{background:var(--accent);color:#15170f;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:22px;flex-shrink:0;text-shadow:none}
+.ticker{background:var(--text);color:var(--bg);overflow:hidden;padding:14px 0;white-space:nowrap;font:800 12px Montserrat,sans-serif;letter-spacing:2px}
+.ticker-inner{display:flex;justify-content:space-around;gap:30px}
+.ticker b{color:var(--accent)}
+.section{padding:62px 0}
 .section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:28px}
-.kicker{font:700 10px "Montserrat";letter-spacing:2.5px;color:#a17e52;margin-bottom:7px}
-.section-title{font-size:clamp(25px,4vw,38px);font-weight:900;line-height:1.3}
-.section-desc{font-size:12px;color:var(--muted);margin-top:5px}
-.text-link{font-size:12px;font-weight:800;border-bottom:1px solid var(--ink);padding-bottom:5px}
-.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
-.category-card{height:330px;position:relative;overflow:hidden;background:#ddd;color:#fff}
-.category-card img{height:100%;transition:transform .7s}
-.category-card:hover img{transform:scale(1.07)}
-.category-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.72),transparent 70%)}
-.category-info{position:absolute;bottom:24px;right:24px;z-index:2}
-.category-info h3{font-size:25px;font-weight:900}
-.category-info span{font:10px "Montserrat";letter-spacing:2px}
-.category-card button{position:absolute;left:20px;bottom:25px;z-index:3;border:1px solid #fff;background:transparent;color:white;width:38px;height:38px;border-radius:50%;font-size:18px}
-.toolbar{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-bottom:23px}
-.filters{display:flex;gap:8px;flex-wrap:wrap}
-.filter-btn{border:1px solid var(--line);background:transparent;padding:8px 17px;border-radius:30px;font-size:12px;font-weight:700}
-.filter-btn.active,.filter-btn:hover{background:#171717;color:white;border-color:#171717}
-.sort-select{border:1px solid var(--line);background:transparent;padding:8px 12px;font-size:12px}
-.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px 16px}
-.product-card{min-width:0;position:relative}
-.product-image{position:relative;background:#e9e6e0;aspect-ratio:3/3.65;overflow:hidden}
-.product-image img{height:100%;transition:transform .5s}
-.product-card:hover .product-image img{transform:scale(1.05)}
-.product-badge{position:absolute;top:12px;right:12px;background:#fff;padding:5px 10px;font-size:10px;font-weight:800}
-.wish-btn{position:absolute;top:11px;left:11px;border:0;background:#fff;width:34px;height:34px;border-radius:50%;font-size:17px}
-.wish-btn.active{color:#c34c4c}
-.quick-add{position:absolute;bottom:12px;left:12px;right:12px;border:0;background:rgba(255,255,255,.95);padding:11px;font-size:12px;font-weight:800;opacity:0;transform:translateY(8px);transition:.25s}
+.section-head h2{font-size:clamp(26px,4vw,42px);line-height:1.2;margin:8px 0 0;font-weight:900;letter-spacing:-1px}
+.section-head p{font-size:12px;color:var(--muted);margin:9px 0 0}
+.text-link{font-size:12px;font-weight:900;border-bottom:1px solid var(--text);padding-bottom:5px;white-space:nowrap}
+.categories{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:13px}
+.category{position:relative;overflow:hidden;border-radius:15px;background:var(--card);border:0;padding:0;color:var(--text);text-align:start;min-width:0}
+.category img{width:100%;height:175px;object-fit:cover;transition:transform .4s}
+.category:hover img{transform:scale(1.06)}
+.category-info{padding:14px}
+.category-info strong{display:block;font-size:14px;font-weight:900}
+.category-info small{color:var(--muted);font-size:10px}
+.filters{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:23px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--text);padding:9px 17px;border-radius:30px;font-size:11px;font-weight:800}
+.chip.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.searchbox{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:30px;padding:0 14px;min-width:220px;flex:1;max-width:350px}
+.searchbox input{border:0;outline:none;background:transparent;color:var(--text);width:100%;padding:11px 0;font-size:12px}
+.sort{background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:30px;padding:10px 12px;font-size:11px;max-width:100%}
+.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 15px}
+.product-card{min-width:0}
+.product-image{position:relative;overflow:hidden;background:var(--card);border-radius:15px;aspect-ratio:4/4.7}
+.product-image img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.product-card:hover .product-image img{transform:scale(1.045)}
+.tag{position:absolute;top:11px;right:11px;background:var(--accent);color:#15170f;padding:5px 9px;border-radius:4px;font-size:9px;font-weight:900}
+.heart{position:absolute;top:10px;left:10px;border:0;background:var(--surface);color:var(--text);border-radius:50%;width:34px;height:34px;font-size:18px;display:grid;place-items:center}
+.heart.active{color:#e84b68}
+.quick-add{position:absolute;bottom:10px;left:10px;right:10px;background:var(--surface);color:var(--text);border:0;border-radius:9px;padding:11px;font-size:11px;font-weight:900;opacity:0;transform:translateY(7px);transition:.2s}
 .product-card:hover .quick-add{opacity:1;transform:none}
-.product-info{padding:13px 2px}
-.product-category{font-size:10px;color:var(--muted);margin-bottom:4px}
-.product-name{font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.product-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
-.price{font:700 14px "Montserrat"}
-.old-price{font:11px "Montserrat";color:#999;text-decoration:line-through;margin-right:5px}
-.no-results{grid-column:1/-1;text-align:center;padding:50px;color:var(--muted)}
-.promo{background:#171717;color:#fff;display:grid;grid-template-columns:1fr 1fr;min-height:350px;overflow:hidden}
-.promo-image{height:100%;min-height:350px}
-.promo-image img{height:100%}
-.promo-content{padding:45px;display:flex;flex-direction:column;justify-content:center}
-.promo-content h2{font:900 clamp(32px,5vw,55px)/1.05 "Montserrat";margin:10px 0 18px}
-.promo-content p{font-size:13px;color:#ccc;line-height:2;margin-bottom:22px}
-.promo .btn{align-self:flex-start}
-.features{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 0;gap:15px}
-.feature{text-align:center}
-.feature-icon{font-size:22px;margin-bottom:7px}
-.feature h4{font-size:13px}
-.feature p{font-size:11px;color:var(--muted)}
-.newsletter{background:#e9e4da;padding:55px 20px;text-align:center}
-.newsletter h2{font-size:26px;font-weight:900}
-.newsletter p{font-size:12px;color:#6f6b64;margin:8px 0 20px}
-.newsletter-form{display:flex;max-width:430px;margin:auto}
-.newsletter-form input{flex:1;min-width:0;border:1px solid #d5cec1;background:#fff;padding:13px;font-size:12px;outline:none}
-.newsletter-form button{border:0;background:#171717;color:#fff;padding:0 20px;font-size:12px}
-footer{background:#151515;color:#fff;padding:50px 0 20px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px;padding-bottom:35px}
-.footer-brand p{font-size:12px;line-height:2;color:#aaa;max-width:320px;margin-top:15px}
-.footer-col h4{font-size:13px;margin-bottom:14px}
-.footer-col a{display:block;color:#aaa;font-size:12px;margin:9px 0}
-.footer-col a:hover{color:#d8b88e}
-.footer-bottom{border-top:1px solid #333;padding-top:18px;display:flex;justify-content:space-between;gap:10px;color:#888;font-size:10px}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:100;opacity:0;visibility:hidden;transition:.25s}
-.overlay.open{opacity:1;visibility:visible}
-.drawer{position:fixed;top:0;bottom:0;left:0;width:min(430px,100%);background:var(--paper);z-index:101;transform:translateX(-105%);transition:.3s;display:flex;flex-direction:column}
-.drawer.open{transform:translateX(0)}
-.drawer-head{padding:22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
-.drawer-head h3{font-size:18px}
-.close-btn{border:0;background:transparent;font-size:25px}
-.drawer-body{padding:20px;overflow:auto;flex:1}
-.cart-item{display:grid;grid-template-columns:75px 1fr auto;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
-.cart-item img{height:90px}
-.cart-item h4{font-size:12px}
-.cart-item p{font:12px "Montserrat";margin-top:7px}
+.product-meta{display:flex;align-items:start;justify-content:space-between;gap:8px;margin-top:12px}
+.product-name{font-size:13px;font-weight:900;margin:0 0 5px}
+.product-desc{font-size:10px;color:var(--muted);margin:0}
+.price{font:800 13px Montserrat,sans-serif;white-space:nowrap}
+.old-price{font-size:10px;color:var(--muted);text-decoration:line-through;margin-inline-start:5px}
+.rating{font-size:10px;color:#b18a20;margin-top:8px}
+.no-results{grid-column:1/-1;text-align:center;color:var(--muted);padding:50px 10px}
+.promo{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--radius);overflow:hidden;background:var(--accent);color:#171914;min-height:310px}
+.promo-copy{padding:clamp(25px,5vw,55px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.promo h2{font-size:clamp(29px,4vw,47px);line-height:1.2;margin:15px 0;font-weight:900}
+.promo p{font-size:13px;line-height:1.9;max-width:400px}
+.promo img{height:100%;width:100%;object-fit:cover;min-height:280px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.feature{padding:25px 20px;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
+.feature .symbol{font-size:24px}
+.feature h3{font-size:14px;margin:12px 0 7px}
+.feature p{font-size:11px;color:var(--muted);line-height:1.9;margin:0}
+.newsletter{padding:40px 25px;text-align:center;background:var(--card);border-radius:var(--radius)}
+.newsletter h2{font-size:27px;margin:0 0 10px}
+.newsletter p{font-size:12px;color:var(--muted);line-height:1.8}
+.newsletter form{display:flex;gap:8px;max-width:440px;margin:22px auto 0}
+.newsletter input{flex:1;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:30px;padding:12px 16px;color:var(--text)}
+footer{background:var(--surface);border-top:1px solid var(--line);padding:45px 0 20px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:35px}
+.footer-grid p{font-size:12px;line-height:2;color:var(--muted);max-width:330px}
+.footer-grid h3{font-size:13px;margin:0 0 14px}
+.footer-links{display:grid;gap:10px;font-size:12px;color:var(--muted)}
+.footer-bottom{border-top:1px solid var(--line);margin-top:35px;padding-top:18px;display:flex;justify-content:space-between;gap:15px;font-size:10px;color:var(--muted)}
+.float-wa{position:fixed;bottom:20px;left:20px;z-index:40;background:#20bd65;color:white;border-radius:50%;width:54px;height:54px;display:grid;place-items:center;font-size:25px;box-shadow:0 8px 25px #0002}
+.overlay{position:fixed;inset:0;background:#0009;z-index:100;display:none;align-items:center;justify-content:center;padding:15px}
+.overlay.open{display:flex}
+.modal{width:min(760px,100%);max-height:90vh;overflow:auto;background:var(--surface);color:var(--text);border-radius:20px;padding:24px;box-shadow:var(--shadow)}
+.modal-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:20px}
+.modal-head h2{margin:0;font-size:21px}
+.close{border:0;border-radius:50%;background:var(--card);color:var(--text);width:38px;height:38px;font-size:21px;flex-shrink:0}
+.product-detail{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.product-detail img{width:100%;height:350px;object-fit:cover;border-radius:13px;background:var(--card)}
+.product-detail h3{font-size:24px;margin:0 0 10px}
+.product-detail p{font-size:12px;color:var(--muted);line-height:2}
+.field{display:grid;gap:6px;margin:13px 0}
+.field label{font-size:11px;font-weight:800}
+.field input,.field select,.field textarea{width:100%;padding:11px 12px;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:9px;min-width:0}
+.field textarea{min-height:80px;resize:vertical}
+.row-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.size-options{display:flex;gap:8px;flex-wrap:wrap}
+.size-option{border:1px solid var(--line);background:var(--bg);color:var(--text);padding:8px 12px;border-radius:8px;font-size:11px}
+.size-option.active{background:var(--text);color:var(--bg)}
+.cart-item{display:grid;grid-template-columns:70px 1fr auto;gap:13px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+.cart-item img{width:70px;height:80px;object-fit:cover;border-radius:9px}
+.cart-item h4{margin:0 0 5px;font-size:12px}
 .cart-item small{font-size:10px;color:var(--muted)}
-.remove-item{border:0;background:transparent;color:#a44;font-size:11px}
-.qty{display:flex;align-items:center;gap:10px;margin-top:9px}
-.qty button{width:24px;height:24px;border:1px solid var(--line);background:white}
-.drawer-foot{padding:20px;border-top:1px solid var(--line)}
-.total-line{display:flex;justify-content:space-between;font-weight:900;margin-bottom:15px}
-.drawer-foot .btn{width:100%}
-.empty-state{text-align:center;padding:45px 10px;color:var(--muted);font-size:13px}
-.modal-wrap{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;padding:18px}
-.modal-wrap.open{display:flex}
-.modal{background:var(--paper);width:min(800px,100%);max-height:90vh;overflow:auto;position:relative}
-.modal-close{position:absolute;top:12px;left:12px;z-index:2;background:#fff;border:0;border-radius:50%;width:35px;height:35px;font-size:20px}
-.product-modal{display:grid;grid-template-columns:1fr 1fr}
-.product-modal>img{height:100%;min-height:400px}
-.product-modal-info{padding:35px}
-.product-modal-info h2{font-size:24px;margin:7px 0}
-.product-modal-info p{font-size:12px;color:var(--muted);line-height:2;margin:15px 0}
-.field-label{font-size:12px;font-weight:800;display:block;margin:16px 0 8px}
-.size-options{display:flex;gap:7px;flex-wrap:wrap}
-.size-option{border:1px solid var(--line);background:white;padding:8px 13px;font-size:11px}
-.size-option.selected{background:#171717;color:#fff}
-.quantity-input{width:70px;padding:9px;border:1px solid var(--line)}
-.product-modal-info .btn{width:100%;margin-top:20px}
-.admin-modal{width:min(650px,100%);padding:28px}
-.admin-modal h2{font-size:22px;margin-bottom:15px}
-.admin-form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.admin-form label{font-size:11px;font-weight:700}
-.admin-form input,.admin-form select{width:100%;padding:11px;border:1px solid var(--line);background:#fff;margin-top:5px;outline:none;font-size:12px}
-.admin-form .full{grid-column:1/-1}
-.admin-form button{grid-column:1/-1}
-.admin-list{margin-top:25px;border-top:1px solid var(--line);padding-top:15px}
-.admin-product{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
-.admin-product img{width:45px;height:55px}
-.admin-product div{flex:1;font-size:12px}
-.admin-product button{border:0;background:transparent;color:#a33;font-size:11px}
-.toast{position:fixed;bottom:22px;right:50%;transform:translate(50%,20px);background:#171717;color:white;padding:12px 20px;font-size:12px;z-index:200;opacity:0;transition:.25s;pointer-events:none}
-.toast.show{opacity:1;transform:translate(50%,0)}
-.search-box{position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:130;display:none;align-items:center;justify-content:center;padding:25px}
-.search-box.open{display:flex}
-.search-inner{width:min(650px,100%);color:white}
-.search-inner input{width:100%;background:transparent;border:0;border-bottom:1px solid #777;padding:20px 0;color:white;font-size:25px;outline:none}
-.search-close{position:absolute;top:25px;left:25px;color:white;background:none;border:0;font-size:30px}
-@media(max-width:850px){
- .navlinks{gap:14px}.products-grid{grid-template-columns:repeat(3,1fr)}
- .hero-card{min-height:460px}.category-card{height:270px}
+.qty{display:flex;align-items:center;gap:10px;margin-top:8px}
+.qty button{border:1px solid var(--line);border-radius:7px;width:26px;height:26px;background:var(--bg);color:var(--text)}
+.cart-summary{display:flex;justify-content:space-between;padding:20px 0;font-weight:900}
+.full{width:100%}
+.notice{padding:12px;border-radius:10px;background:var(--card);color:var(--muted);font-size:11px;line-height:1.9;margin:10px 0}
+.admin-table{width:100%;border-collapse:collapse;font-size:11px;min-width:560px}
+.admin-table th,.admin-table td{text-align:start;padding:12px 8px;border-bottom:1px solid var(--line)}
+.table-wrap{overflow:auto}
+.admin-actions{display:flex;gap:7px;flex-wrap:wrap}
+.small-btn{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:7px;padding:7px 9px;font-size:10px}
+.small-btn.danger{color:#e44b57}
+.admin-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.stat{padding:17px;background:var(--card);border-radius:12px}
+.stat small{color:var(--muted);font-size:10px}
+.stat strong{display:block;font:800 23px Montserrat,sans-serif;margin-top:8px}
+.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);background:var(--text);color:var(--bg);padding:12px 20px;border-radius:30px;font-size:12px;font-weight:800;z-index:200;opacity:0;pointer-events:none;transition:.25s;max-width:90%;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.empty{text-align:center;padding:35px 10px;color:var(--muted);font-size:12px}
+.mobile-nav{display:none}
+@media(max-width:900px){
+ .navlinks{gap:13px}.hero-grid{min-height:400px}.hero-copy{padding:30px}
+ .categories{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .category img{height:145px}
 }
-@media(max-width:620px){
- .topbar{height:65px}.logo{font-size:22px}.navlinks{display:none}
- .menu-btn{display:grid}.nav-actions{gap:6px}.icon-btn{width:36px;height:36px}
- .hero{padding:12px 0 35px}.hero-card{min-height:490px}
- .hero-image{object-position:58% center}.hero-overlay{background:linear-gradient(0deg,rgba(0,0,0,.85),rgba(0,0,0,.1))}
- .hero-content{padding:30px 23px;margin-top:100px}.hero h1{font-size:53px;letter-spacing:-3px}
- .hero p{font-size:13px}.hero-bottom{left:20px;font-size:9px}
- .section{padding:43px 0}.section-head{align-items:start}
- .categories{gap:9px}.category-card{height:190px}
- .category-info{right:10px;bottom:13px}.category-info h3{font-size:16px}
- .category-info span{font-size:8px}.category-card button{left:9px;bottom:12px;width:29px;height:29px}
- .products-grid{grid-template-columns:repeat(2,1fr);gap:19px 10px}
- .product-name{font-size:12px}.product-image{aspect-ratio:3/3.8}
- .quick-add{opacity:1;transform:none;padding:8px;font-size:10px}
- .product-badge{top:8px;right:8px;font-size:9px}.wish-btn{top:7px;left:7px;width:29px;height:29px}
- .promo{grid-template-columns:1fr}.promo-image{height:230px;min-height:0}
- .promo-content{padding:28px 22px}.features{grid-template-columns:1fr;gap:22px}
- .footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}
- .footer-bottom{flex-direction:column;text-align:center}
- .product-modal{grid-template-columns:1fr}.product-modal>img{height:260px;min-height:0}
- .product-modal-info{padding:22px}.admin-form{grid-template-columns:1fr}
- .admin-form .full{grid-column:auto}.admin-modal{padding:20px}
+@media(max-width:600px){
+ :root{--header:65px}
+ .container{width:92%}.topline{font-size:10px}
+ .nav{gap:8px}.logo{font-size:19px;letter-spacing:-1px}
+ .navlinks{display:none}.navtools{gap:5px}
+ .iconbtn{width:36px;height:36px;font-size:16px}.langbtn{height:35px;padding:0 9px}
+ .hero{padding:15px 0 27px}.hero-grid{grid-template-columns:1fr;gap:12px}
+ .hero-copy{min-height:350px;padding:28px}
+ .hero h1{font-size:clamp(43px,12vw,65px);margin:20px 0 13px}
+ .hero-copy p{font-size:12px}.hero-photo{min-height:330px}
+ .ticker-inner{justify-content:flex-start;padding-inline:15px;gap:25px}
+ .section{padding:43px 0}.section-head{margin-bottom:20px}
+ .section-head h2{font-size:28px}.section-head p{font-size:10px}
+ .categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .category img{height:155px}.category-info{padding:11px}
+ .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 10px}
+ .product-image{border-radius:11px}.product-name{font-size:12px}
+ .price{font-size:11px}.quick-add{opacity:1;transform:none;bottom:7px;left:7px;right:7px;padding:9px}
+ .filters{gap:7px}.chip{padding:8px 12px;font-size:10px}
+ .searchbox{min-width:100%;max-width:none;order:-1}
+ .sort{flex:1;min-width:0}
+ .promo{grid-template-columns:1fr}.promo-copy{padding:28px}
+ .promo img{min-height:240px;height:240px}
+ .features{grid-template-columns:1fr;gap:10px}
+ .feature{padding:18px}
+ .footer-grid{grid-template-columns:1fr 1fr;gap:25px}
+ .footer-grid>div:first-child{grid-column:1/-1}
+ .footer-bottom{flex-direction:column;gap:8px}
+ .product-detail{grid-template-columns:1fr;gap:17px}
+ .product-detail img{height:300px}
+ .modal{padding:17px;border-radius:16px}
+ .admin-stats{grid-template-columns:1fr 1fr}
+ .row-fields{grid-template-columns:1fr}
+ .newsletter form{flex-direction:column}
+ .float-wa{width:49px;height:49px;bottom:15px;left:15px}
 }
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 
 <body>
-<div class="announcement">WELCOME TO SHUBRA STORE — <span>NEW COLLECTION IS HERE</span></div>
+<div class="topline" id="announcement">NEW SEASON — YOUR STYLE, YOUR RULES ✦ شحن سريع حسب منطقتك</div>
 
-<header class="topbar">
+<header>
  <div class="container nav">
-  <button class="icon-btn menu-btn" onclick="scrollToSection('categories')" aria-label="الأقسام">☰</button>
-  <a href="#" class="logo">SHUBRA<span>.</span></a>
+  <a href="#" class="logo en" aria-label="SHUBRA STORE home">SHUBRA<span>STORE</span></a>
   <nav class="navlinks">
-   <a href="#home">الرئيسية</a>
-   <a href="#categories">الأقسام</a>
-   <a href="#products">المنتجات</a>
-   <a href="#offers">العروض</a>
-   <a href="#about">عن المتجر</a>
+   <a href="#home" data-i="home">الرئيسية</a>
+   <a href="#categories" data-i="categories">الأقسام</a>
+   <a href="#shop" data-i="shop">المتجر</a>
+   <a href="#about" data-i="about">عن المتجر</a>
   </nav>
-  <div class="nav-actions">
-   <button class="icon-btn" onclick="openSearch()" aria-label="بحث">⌕</button>
-   <button class="icon-btn" onclick="showWishlist()" aria-label="المفضلة">♡<span class="count" id="wishCount">0</span></button>
-   <button class="icon-btn" onclick="openCart()" aria-label="السلة">♧<span class="count" id="cartCount">0</span></button>
+  <div class="navtools">
+   <button class="langbtn" id="langBtn" aria-label="Change language">EN / عربي</button>
+   <button class="iconbtn" id="themeBtn" aria-label="Toggle theme">☾</button>
+   <button class="iconbtn" onclick="openWishlist()" aria-label="Wishlist">♡<span class="count" id="wishCount">0</span></button>
+   <button class="iconbtn" onclick="openCart()" aria-label="Cart">🛍<span class="count" id="cartCount">0</span></button>
   </div>
  </div>
 </header>
 
 <main>
 <section class="hero" id="home">
- <div class="container">
-  <div class="hero-card">
-   <img class="hero-image" src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1800&q=90" alt="SHUBRA fashion collection">
-   <div class="hero-overlay"></div>
-   <div class="hero-content">
-    <div class="eyebrow">THE NEW GENERATION OF STYLE</div>
-    <h1 class="english">WEAR<br><span>YOUR</span><br>IDENTITY.</h1>
-    <p>مش مجرد لبس.. دي هويتك، أسلوبك، والطريقة اللي بتعبّر بيها عن نفسك. اكتشف مجموعتنا الجديدة.</p>
-    <a href="#products" class="btn btn-light">اكتشف المجموعة <span>←</span></a>
+ <div class="container hero-grid">
+  <div class="hero-copy">
+   <div class="eyebrow"><span class="dot"></span><span data-i="heroEyebrow">YOUR DAILY STYLE, REDEFINED</span></div>
+   <h1 data-i="heroTitle">مش مجرد لبس.<br><span class="highlight">دي هويتك.</span></h1>
+   <p data-i="heroText">اكتشف قطع مختارة تجمع بين الراحة، الجرأة، والتفاصيل اللي بتصنع الفرق. ستايلك يبدأ من هنا.</p>
+   <a href="#shop" class="btn btn-accent"><span data-i="explore">اكتشف المجموعة</span> <span>↙</span></a>
+   <div style="margin-top:25px;font-size:10px;color:var(--muted)" data-i="heroFoot">FRESH LOOKS · EVERYDAY COMFORT · YOUR IDENTITY</div>
+  </div>
+  <div class="hero-photo">
+   <img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1100&q=85" alt="Modern streetwear fashion" fetchpriority="high">
+   <div class="photo-label">
+    <div><strong>OWN YOUR LOOK.</strong><br><span data-i="heroImageText">New season. New energy.</span></div>
+    <a href="#shop" class="round-arrow" aria-label="Shop now">↙</a>
    </div>
-   <div class="hero-bottom english">SHUBRA STORE — EST. 2026</div>
   </div>
  </div>
 </section>
+
+<div class="ticker en"><div class="ticker-inner">
+ <span>FIND YOUR FIT <b>✳</b></span><span>STYLE WITHOUT RULES <b>✳</b></span><span>BUILT FOR EVERYDAY <b>✳</b></span><span>SHUBRA STORE <b>✳</b></span>
+</div></div>
 
 <section class="section" id="categories">
  <div class="container">
   <div class="section-head">
-   <div><div class="kicker">EXPLORE COLLECTIONS</div><h2 class="section-title">اكتشف الأقسام</h2><p class="section-desc">اختار الستايل اللي يعبر عنك.</p></div>
+   <div><div class="eyebrow" data-i="categoriesEyebrow">SHOP BY CATEGORY</div><h2 data-i="categoriesTitle">اختار ستايلك.</h2><p data-i="categoriesSub">كل قطعة ليها شخصية، اختار اللي شبهك.</p></div>
+   <a href="#shop" class="text-link" data-i="viewAll">كل المنتجات ↙</a>
   </div>
-  <div class="categories">
-   <div class="category-card">
-    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=85" alt="ملابس">
-    <div class="category-info"><h3>ملابس</h3><span>APPAREL</span></div>
-    <button onclick="filterCategory('ملابس')">↗</button>
-   </div>
-   <div class="category-card">
-    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85" alt="أحذية">
-    <div class="category-info"><h3>أحذية</h3><span>FOOTWEAR</span></div>
-    <button onclick="filterCategory('أحذية')">↗</button>
-   </div>
-   <div class="category-card">
-    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85" alt="إكسسوارات">
-    <div class="category-info"><h3>إكسسوارات</h3><span>ACCESSORIES</span></div>
-    <button onclick="filterCategory('إكسسوارات')">↗</button>
-   </div>
-  </div>
+  <div class="categories" id="categoryGrid"></div>
  </div>
 </section>
 
-<section class="section" id="products" style="padding-top:15px">
+<section class="section" id="shop" style="padding-top:20px">
  <div class="container">
   <div class="section-head">
-   <div><div class="kicker">CURATED FOR YOU</div><h2 class="section-title">اختياراتنا المميزة</h2><p class="section-desc">قطع مختارة بعناية عشان تكمل إطلالتك.</p></div>
-   <a href="#products" class="text-link" onclick="resetFilters()">كل المنتجات ←</a>
+   <div><div class="eyebrow" data-i="shopEyebrow">THE LATEST DROP</div><h2 data-i="shopTitle">اختيارات الموسم.</h2><p data-i="shopSub">اكتشف القطع اللي هتكمل إطلالتك.</p></div>
+   <span class="en" id="productCount" style="font-size:11px;color:var(--muted)">08 PRODUCTS</span>
   </div>
-  <div class="toolbar">
-   <div class="filters">
-    <button class="filter-btn active" data-category="الكل" onclick="filterCategory('الكل')">الكل</button>
-    <button class="filter-btn" data-category="ملابس" onclick="filterCategory('ملابس')">ملابس</button>
-    <button class="filter-btn" data-category="أحذية" onclick="filterCategory('أحذية')">أحذية</button>
-    <button class="filter-btn" data-category="إكسسوارات" onclick="filterCategory('إكسسوارات')">إكسسوارات</button>
-   </div>
-   <select class="sort-select" id="sortSelect" onchange="renderProducts()">
-    <option value="default">ترتيب المنتجات</option>
-    <option value="low">السعر: الأقل أولاً</option>
-    <option value="high">السعر: الأعلى أولاً</option>
-    <option value="name">الاسم</option>
+  <div class="filters" id="filters">
+   <div class="searchbox"><span>⌕</span><input id="searchInput" type="search" placeholder="دور على منتج..." aria-label="Search products"></div>
+   <button class="chip active" data-cat="all" data-i="all">الكل</button>
+   <button class="chip" data-cat="shirt" data-i="shirts">تيشيرتات</button>
+   <button class="chip" data-cat="shoe" data-i="shoes">كوتشات</button>
+   <button class="chip" data-cat="slipper" data-i="slippers">شباشب</button>
+   <button class="chip" data-cat="pants" data-i="pants">بناطيل</button>
+   <button class="chip" data-cat="shorts" data-i="shorts">شورتات</button>
+   <select class="sort" id="sortSelect" aria-label="Sort products">
+    <option value="featured" data-i="sortFeatured">ترتيب مميز</option>
+    <option value="low" data-i="sortLow">السعر: الأقل أولًا</option>
+    <option value="high" data-i="sortHigh">السعر: الأعلى أولًا</option>
+    <option value="name" data-i="sortName">الاسم</option>
    </select>
   </div>
-  <div class="products-grid" id="productsGrid"></div>
+  <div class="product-grid" id="productGrid"></div>
  </div>
 </section>
 
-<section class="section" id="offers">
+<section class="section">
  <div class="container">
   <div class="promo">
-   <div class="promo-image"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=85" alt="New season"></div>
-   <div class="promo-content">
-    <div class="eyebrow">LIMITED TIME OFFER</div>
-    <h2>NEW SEASON.<br>NEW ENERGY.</h2>
-    <p>جدّد إطلالتك مع تشكيلتنا الجديدة. تابع أحدث القطع والعروض الحصرية من SHUBRA STORE.</p>
-    <a href="#products" class="btn btn-light">تسوق الآن ←</a>
+   <div class="promo-copy">
+    <div class="eyebrow"><span class="dot"></span><span data-i="promoEyebrow">THE EVERYDAY COLLECTION</span></div>
+    <h2 data-i="promoTitle">البس براحتك.<br>واتكلم بستايلك.</h2>
+    <p data-i="promoText">من القطع الأساسية لحد التفاصيل اللي بتلفت النظر، اختيارات تناسب يومك وتعبّر عنك.</p>
+    <a href="#shop" class="btn" style="background:#15170f;color:#c7ff45" data-i="shopCollection">تسوق المجموعة ↙</a>
    </div>
+   <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85" alt="Streetwear collection" loading="lazy">
   </div>
  </div>
 </section>
 
 <section class="section" id="about">
  <div class="container">
+  <div class="section-head"><div><div class="eyebrow" data-i="whyEyebrow">THE SHUBRA STANDARD</div><h2 data-i="whyTitle">تجربة أبسط. ستايل أقوى.</h2><p data-i="whySub">تفاصيل صغيرة بتفرق في تجربة التسوق.</p></div></div>
   <div class="features">
-   <div class="feature"><div class="feature-icon">✦</div><h4>اختيارات مميزة</h4><p>منتجات مختارة بعناية لستايل مختلف.</p></div>
-   <div class="feature"><div class="feature-icon">↗</div><h4>سهولة الطلب</h4><p>اطلب منتجاتك بسهولة عبر واتساب.</p></div>
-   <div class="feature"><div class="feature-icon">♡</div><h4>ستايلك أولاً</h4><p>اختيارات تناسب ذوقك وشخصيتك.</p></div>
+   <article class="feature"><div class="symbol">✳</div><h3 data-i="feature1Title">اختيارات متنوعة</h3><p data-i="feature1Text">ملابس وأحذية وإضافات تكمل إطلالتك اليومية.</p></article>
+   <article class="feature"><div class="symbol">↗</div><h3 data-i="feature2Title">طلب سهل وسريع</h3><p data-i="feature2Text">جهز طلبك من الموقع وابعت تفاصيله على واتساب.</p></article>
+   <article class="feature"><div class="symbol">◇</div><h3 data-i="feature3Title">تجربة واضحة</h3><p data-i="feature3Text">راجع المقاسات والكميات والأسعار قبل تأكيد طلبك.</p></article>
   </div>
  </div>
 </section>
 
-<section class="newsletter">
- <div class="container">
-  <div class="kicker">STAY IN THE LOOP</div>
-  <h2>خليك دايمًا في الصورة.</h2>
-  <p>تابع جديد SHUBRA STORE والعروض أول بأول.</p>
-  <form class="newsletter-form" onsubmit="event.preventDefault();toast('تابعنا على واتساب لمعرفة أحدث العروض');">
-   <input type="text" placeholder="اكتب رقم هاتفك (اختياري)">
-   <button type="submit">تابعنا</button>
-  </form>
- </div>
+<section class="section" style="padding-top:0">
+ <div class="container"><div class="newsletter">
+  <div class="eyebrow" style="justify-content:center" data-i="newsletterEyebrow">STAY IN THE LOOP</div>
+  <h2 data-i="newsletterTitle">خليك أول واحد يعرف.</h2>
+  <p data-i="newsletterText">حابب تعرف الجديد؟ ابعتلنا على واتساب لمتابعة أحدث المنتجات والعروض.</p>
+  <a class="btn btn-accent" id="newsletterBtn" href="#" target="_blank" rel="noopener" data-i="contactUs">تواصل معانا ↗</a>
+ </div></div>
 </section>
 </main>
 
 <footer>
  <div class="container">
   <div class="footer-grid">
-   <div class="footer-brand">
-    <a href="#" class="logo english">SHUBRA<span>.</span></a>
-    <p>أسلوبك هو هويتك. اكتشف عالم SHUBRA STORE واختار القطع اللي تشبهك.</p>
-   </div>
-   <div class="footer-col"><h4>روابط سريعة</h4><a href="#home">الرئيسية</a><a href="#categories">الأقسام</a><a href="#products">المنتجات</a><a href="#offers">العروض</a></div>
-   <div class="footer-col"><h4>تواصل معنا</h4><a href="#" id="footerWhatsapp" target="_blank">واتساب</a><a href="#" id="footerFacebook" target="_blank">فيسبوك</a><a href="#" onclick="openAdmin()">إدارة المتجر</a></div>
+   <div><a href="#" class="logo en">SHUBRA<span>STORE</span></a><p data-i="footerDesc">ستايل يومي، اختيارات متنوعة، وتجربة تسوق سهلة. اكتشف القطع اللي تعبّر عنك.</p></div>
+   <div><h3 data-i="quickLinks">روابط سريعة</h3><div class="footer-links"><a href="#home" data-i="home">الرئيسية</a><a href="#categories" data-i="categories">الأقسام</a><a href="#shop" data-i="shop">المتجر</a><a href="#about" data-i="about">عن المتجر</a></div></div>
+   <div><h3 data-i="contact">تواصل</h3><div class="footer-links"><a id="footerWhatsapp" href="#" target="_blank" rel="noopener">WhatsApp ↗</a><a href="#shop" data-i="browseProducts">تصفح المنتجات</a><button class="small-btn" onclick="adminLogin()" data-i="adminLogin" style="width:max-content">إدارة المتجر</button></div></div>
   </div>
-  <div class="footer-bottom"><span>© 2026 SHUBRA STORE. ALL RIGHTS RESERVED.</span><span class="english">WEAR YOUR IDENTITY.</span></div>
+  <div class="footer-bottom"><span>© <span id="year"></span> SHUBRA STORE. <span data-i="rights">جميع الحقوق محفوظة.</span></span><span class="en">DESIGNED FOR YOUR EVERYDAY</span></div>
  </div>
 </footer>
 
-<div class="overlay" id="overlay" onclick="closeDrawers()"></div>
-<aside class="drawer" id="cartDrawer">
- <div class="drawer-head"><h3>سلة المشتريات</h3><button class="close-btn" onclick="closeDrawers()">×</button></div>
- <div class="drawer-body" id="cartItems"></div>
- <div class="drawer-foot">
-  <div class="total-line"><span>الإجمالي</span><span id="cartTotal">0 جنيه</span></div>
-  <button class="btn" onclick="checkout()">إتمام الطلب عبر واتساب ←</button>
- </div>
-</aside>
+<a class="float-wa" id="floatingWhatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">◉</a>
 
-<aside class="drawer" id="wishDrawer">
- <div class="drawer-head"><h3>قائمة المفضلة ♡</h3><button class="close-btn" onclick="closeDrawers()">×</button></div>
- <div class="drawer-body" id="wishItems"></div>
-</aside>
-
-<div class="modal-wrap" id="productModal">
- <div class="modal product-modal" id="productModalContent"></div>
+<div class="overlay" id="productOverlay" onclick="outsideClose(event,'productOverlay')">
+ <div class="modal" role="dialog" aria-modal="true" aria-label="Product details"><div class="modal-head"><h2 data-i="productDetails">تفاصيل المنتج</h2><button class="close" onclick="closeModal('productOverlay')" aria-label="Close">×</button></div><div id="productDetailContent"></div></div>
 </div>
 
-<div class="modal-wrap" id="adminModal">
- <div class="modal admin-modal">
-  <button class="modal-close" onclick="closeAdmin()">×</button>
-  <h2>لوحة إدارة SHUBRA</h2>
-  <p style="font-size:11px;color:#888;margin-bottom:20px">وضع تجريبي محلي — غير مناسب لإدارة متجر حقيقي قبل ربط Backend.</p>
-  <form class="admin-form" id="adminForm">
-   <label>اسم المنتج<input id="pName" required placeholder="مثال: Oversized T-Shirt"></label>
-   <label>السعر بالجنيه<input id="pPrice" type="number" min="1" required placeholder="450"></label>
-   <label>القسم<select id="pCategory"><option>ملابس</option><option>أحذية</option><option>إكسسوارات</option></select></label>
-   <label>المقاسات<input id="pSizes" placeholder="S,M,L,XL"></label>
-   <label class="full">رابط صورة المنتج<input id="pImage" type="url" required placeholder="https://..."></label>
-   <label class="full">وصف المنتج<input id="pDescription" placeholder="وصف مختصر للمنتج"></label>
-   <button class="btn" type="submit">إضافة المنتج +</button>
-  </form>
-  <div class="admin-list"><h3 style="font-size:14px;margin-bottom:10px">المنتجات الحالية</h3><div id="adminProducts"></div></div>
- </div>
+<div class="overlay" id="cartOverlay" onclick="outsideClose(event,'cartOverlay')">
+ <div class="modal" role="dialog" aria-modal="true" aria-label="Shopping cart"><div class="modal-head"><h2 data-i="yourCart">سلة مشترياتك</h2><button class="close" onclick="closeModal('cartOverlay')" aria-label="Close">×</button></div><div id="cartContent"></div></div>
 </div>
 
-<div class="search-box" id="searchBox">
- <button class="search-close" onclick="closeSearch()">×</button>
- <div class="search-inner">
-  <div class="eyebrow">FIND YOUR STYLE</div>
-  <h2 style="font-size:25px">بتدور على إيه؟</h2>
-  <input id="searchInput" type="search" placeholder="ابحث عن منتج..." oninput="searchProducts(this.value)">
- </div>
+<div class="overlay" id="wishOverlay" onclick="outsideClose(event,'wishOverlay')">
+ <div class="modal" role="dialog" aria-modal="true" aria-label="Wishlist"><div class="modal-head"><h2 data-i="yourWishlist">منتجاتك المفضلة</h2><button class="close" onclick="closeModal('wishOverlay')" aria-label="Close">×</button></div><div id="wishContent"></div></div>
 </div>
-<div class="toast" id="toast"></div>
+
+<div class="overlay" id="adminOverlay" onclick="outsideClose(event,'adminOverlay')">
+ <div class="modal" role="dialog" aria-modal="true" aria-label="Store administration"><div class="modal-head"><h2 data-i="adminTitle">إدارة المتجر</h2><button class="close" onclick="closeModal('adminOverlay')" aria-label="Close">×</button></div><div id="adminContent"></div></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-const defaultProducts = [
- {id:1,name:"Essential Oversized Tee",category:"ملابس",price:390,oldPrice:450,badge:"الأكثر مبيعًا",image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85",sizes:["S","M","L","XL"],description:"تيشيرت بتصميم مريح وقصة Oversized، مناسب لإطلالة يومية عصرية."},
- {id:2,name:"Urban Street Hoodie",category:"ملابس",price:690,oldPrice:0,badge:"NEW",image:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=85",sizes:["M","L","XL","XXL"],description:"هودي عملي بتصميم عصري وخامة مريحة."},
- {id:3,name:"Classic White Sneakers",category:"أحذية",price:850,oldPrice:950,badge:"عرض خاص",image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85",sizes:["40","41","42","43","44"],description:"حذاء بتصميم كلاسيكي يناسب إطلالاتك اليومية."},
- {id:4,name:"Minimal Watch",category:"إكسسوارات",price:550,oldPrice:0,badge:"",image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85",sizes:["ONE SIZE"],description:"ساعة بتصميم بسيط وأنيق."},
- {id:5,name:"Premium Black Jacket",category:"ملابس",price:1100,oldPrice:1250,badge:"LIMITED",image:"https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=85",sizes:["M","L","XL"],description:"جاكيت أسود بتصميم أنيق يناسب مختلف الإطلالات."},
- {id:6,name:"Street Runner Sneakers",category:"أحذية",price:990,oldPrice:0,badge:"NEW",image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85",sizes:["40","41","42","43"],description:"حذاء رياضي مريح بتصميم شبابي."},
- {id:7,name:"Everyday Cap",category:"إكسسوارات",price:250,oldPrice:300,badge:"عرض خاص",image:"https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=85",sizes:["ONE SIZE"],description:"كاب عملي يكمل إطلالتك اليومية."},
- {id:8,name:"Modern Fit Shirt",category:"ملابس",price:490,oldPrice:0,badge:"",image:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=85",sizes:["S","M","L","XL"],description:"قميص بتصميم بسيط يناسب الخروجات والمناسبات."}
+"use strict";
+
+/* =========================
+   SHUBRA STORE CONFIG
+   غيّر الرقم إلى رقم واتساب المتجر
+   بصيغة دولية بدون + أو مسافات.
+   مثال مصري: 201XXXXXXXXX
+========================= */
+const STORE = {
+ whatsapp: "201000000000",
+ currency: "EGP",
+ currencyArabic: "ج.م",
+ /* لوحة الإدارة التجريبية فقط وليست حماية حقيقية */
+ demoAdminPin: "1234"
+};
+
+const IMAGES = {
+ shirt1:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80",
+ shirt2:"https://images.unsplash.com/photo-1583743814966-8936f37f4678?auto=format&fit=crop&w=700&q=80",
+ shoe1:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80",
+ shoe2:"https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80",
+ slipper:"https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=700&q=80",
+ pants:"https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=80",
+ shorts:"https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&w=700&q=80",
+ jacket:"https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80"
+};
+
+const SEED_PRODUCTS = [
+ {id:101,name:"Essential Oversized Tee",ar:"تيشيرت أوفر سايز",cat:"shirt",price:420,old:520,image:IMAGES.shirt1,sizes:["S","M","L","XL","XXL"],stock:20,tag:"BESTSELLER",featured:true,desc:"A relaxed everyday essential with a clean silhouette."},
+ {id:102,name:"Classic Black Tee",ar:"تيشيرت كلاسيك أسود",cat:"shirt",price:350,old:0,image:IMAGES.shirt2,sizes:["S","M","L","XL"],stock:18,tag:"NEW",featured:true,desc:"Minimal style designed for everyday comfort."},
+ {id:103,name:"Street Runner",ar:"كوتشي ستريت رانر",cat:"shoe",price:1150,old:1350,image:IMAGES.shoe1,sizes:["39","40","41","42","43","44"],stock:12,tag:"POPULAR",featured:true,desc:"A bold everyday sneaker with a sporty look."},
+ {id:104,name:"Urban Classic Sneaker",ar:"كوتشي أوربان كلاسيك",cat:"shoe",price:990,old:0,image:IMAGES.shoe2,sizes:["39","40","41","42","43","44"],stock:10,tag:"",featured:false,desc:"Versatile sneakers for casual everyday outfits."},
+ {id:105,name:"Daily Comfort Slides",ar:"شبشب ديلي كومفورت",cat:"slipper",price:280,old:330,image:IMAGES.slipper,sizes:["40","41","42","43","44"],stock:24,tag:"SALE",featured:true,desc:"Simple slides for relaxed days and everyday use."},
+ {id:106,name:"Relaxed Fit Denim",ar:"بنطلون جينز ريلاكسد",cat:"pants",price:780,old:0,image:IMAGES.pants,sizes:["30","32","34","36","38"],stock:9,tag:"",featured:true,desc:"Relaxed denim with an easy-to-style silhouette."},
+ {id:107,name:"Everyday Shorts",ar:"شورت يومي",cat:"shorts",price:390,old:450,image:IMAGES.shorts,sizes:["M","L","XL","XXL"],stock:16,tag:"SALE",featured:false,desc:"Lightweight shorts for laid-back everyday wear."},
+ {id:108,name:"Street Utility Jacket",ar:"جاكيت ستريت",cat:"shirt",price:1250,old:1450,image:IMAGES.jacket,sizes:["M","L","XL","XXL"],stock:7,tag:"LIMITED",featured:false,desc:"A versatile outer layer for a confident street look."}
 ];
 
-const readStore=(key,fallback)=>{
- try{const value=JSON.parse(localStorage.getItem(key));return value??fallback}
- catch{return fallback}
+const I18N = {
+ ar:{
+  home:"الرئيسية",categories:"الأقسام",shop:"المتجر",about:"عن المتجر",
+  heroEyebrow:"ستايلك اليومي بشكل مختلف",
+  heroTitle:'مش مجرد لبس.<br><span class="highlight">دي هويتك.</span>',
+  heroText:"اكتشف قطع مختارة تجمع بين الراحة، الجرأة، والتفاصيل اللي بتصنع الفرق. ستايلك يبدأ من هنا.",
+  explore:"اكتشف المجموعة",heroFoot:"ستايل جديد · راحة كل يوم · هويتك",
+  heroImageText:"موسم جديد. طاقة جديدة.",
+  categoriesEyebrow:"تسوق حسب القسم",categoriesTitle:"اختار ستايلك.",
+  categoriesSub:"كل قطعة ليها شخصية، اختار اللي شبهك.",viewAll:"كل المنتجات ↙",
+  shopEyebrow:"أحدث الاختيارات",shopTitle:"اختيارات الموسم.",
+  shopSub:"اكتشف القطع اللي هتكمل إطلالتك.",
+  all:"الكل",shirts:"تيشيرتات",shoes:"كوتشات",slippers:"شباشب",pants:"بناطيل",shorts:"شورتات",
+  search:"دور على منتج...",sortFeatured:"ترتيب مميز",sortLow:"السعر: الأقل أولًا",
+  sortHigh:"السعر: الأعلى أولًا",sortName:"الاسم",promoEyebrow:"مجموعة كل يوم",
+  promoTitle:"البس براحتك.<br>واتكلم بستايلك.",
+  promoText:"من القطع الأساسية لحد التفاصيل اللي بتلفت النظر، اختيارات تناسب يومك وتعبّر عنك.",
+  shopCollection:"تسوق المجموعة ↙",whyEyebrow:"معايير شُبرا",whyTitle:"تجربة أبسط. ستايل أقوى.",
+  whySub:"تفاصيل صغيرة بتفرق في تجربة التسوق.",
+  feature1Title:"اختيارات متنوعة",feature1Text:"ملابس وأحذية وإضافات تكمل إطلالتك اليومية.",
+  feature2Title:"طلب سهل وسريع",feature2Text:"جهز طلبك من الموقع وابعت تفاصيله على واتساب.",
+  feature3Title:"تجربة واضحة",feature3Text:"راجع المقاسات والكميات والأسعار قبل تأكيد طلبك.",
+  newsletterEyebrow:"خليك على اطلاع",newsletterTitle:"خليك أول واحد يعرف.",
+  newsletterText:"حابب تعرف الجديد؟ ابعتلنا على واتساب لمتابعة أحدث المنتجات والعروض.",
+  contactUs:"تواصل معانا ↗",footerDesc:"ستايل يومي، اختيارات متنوعة، وتجربة تسوق سهلة. اكتشف القطع اللي تعبّر عنك.",
+  quickLinks:"روابط سريعة",contact:"تواصل",browseProducts:"تصفح المنتجات",
+  adminLogin:"إدارة المتجر",rights:"جميع الحقوق محفوظة.",productDetails:"تفاصيل المنتج",
+  yourCart:"سلة مشترياتك",yourWishlist:"منتجاتك المفضلة",adminTitle:"إدارة المتجر",
+  addCart:"أضف للسلة",chooseSize:"اختار المقاس",quantity:"الكمية",stock:"المتاح",
+  description:"الوصف",remove:"حذف",subtotal:"الإجمالي",checkout:"اطلب عبر واتساب",
+  emptyCart:"السلة لسه فاضية.",emptyWish:"لسه ما ضفتش منتجات للمفضلة.",
+  continueShopping:"كمل تسوق",added:"اتضاف للسلة بنجاح",saved:"اتضاف للمفضلة",
+  removed:"تم الحذف",outStock:"المنتج غير متاح حاليًا",selectSize:"اختار المقاس الأول",
+  adminWarning:"لوحة الإدارة هنا تجريبية داخل المتصفح فقط. لا تستخدمها لحماية بيانات أو إدارة متجر فعلي.",
+  adminPin:"أدخل رمز الإدارة التجريبي",login:"دخول",cancel:"إلغاء",productsAdmin:"إدارة المنتجات",
+  addProduct:"إضافة منتج",edit:"تعديل",delete:"حذف",productName:"اسم المنتج بالإنجليزية",
+  productArabic:"اسم المنتج بالعربية",category:"القسم",price:"السعر بالجنيه",oldPrice:"السعر قبل الخصم",
+  imageUrl:"رابط الصورة",sizesInput:"المقاسات مفصولة بفواصل",stockInput:"الكمية بالمخزون",
+  tagInput:"شارة المنتج (اختياري)",save:"حفظ المنتج",savedProduct:"تم حفظ المنتج",
+  deletedProduct:"تم حذف المنتج",confirmDelete:"متأكد إنك عايز تحذف المنتج؟",
+  noResults:"مفيش منتجات مطابقة لبحثك.",stockLow:"المخزون",items:"منتجات",
+  productCount:"منتج",cartCount:"قطعة",emptyAdmin:"مفيش منتجات لعرضها.",
+  orderName:"الاسم",phone:"رقم الموبايل",address:"العنوان بالتفصيل",notes:"ملاحظات الطلب",
+  sendOrder:"تجهيز الطلب على واتساب",orderForm:"بيانات الطلب",orderHint:"هيتم فتح واتساب برسالة فيها تفاصيل طلبك. إرسال الرسالة وتأكيد الطلب بيتموا منك.",
+  fillRequired:"اكتب الاسم ورقم الموبايل والعنوان.",adminAccess:"دخول الإدارة",
+  imageError:"الصورة غير متاحة",sortNewest:"الأحدث",clearCart:"إفراغ السلة",
+  orderSummary:"ملخص الطلب",total:"الإجمالي",size:"المقاس",unknown:"غير محدد",
+  cat_shirt:"تيشيرتات",cat_shoe:"كوتشات",cat_slipper:"شباشب",cat_pants:"بناطيل",cat_shorts:"شورتات",
+  tag_BESTSELLER:"الأكثر طلبًا",tag_NEW:"جديد",tag_POPULAR:"مميز",tag_SALE:"خصم",tag_LIMITED:"كمية محدودة"
+ },
+ en:{
+  home:"Home",categories:"Categories",shop:"Shop",about:"About",
+  heroEyebrow:"YOUR DAILY STYLE, REDEFINED",
+  heroTitle:'NOT JUST CLOTHES.<br><span class="highlight">YOUR IDENTITY.</span>',
+  heroText:"Discover carefully selected pieces combining comfort, confidence and details that make a difference.",
+  explore:"Explore collection",heroFoot:"FRESH LOOKS · EVERYDAY COMFORT · YOUR IDENTITY",
+  heroImageText:"New season. New energy.",categoriesEyebrow:"SHOP BY CATEGORY",
+  categoriesTitle:"Find your style.",categoriesSub:"Every piece has a personality. Find yours.",
+  viewAll:"View all ↙",shopEyebrow:"THE LATEST DROP",shopTitle:"Season essentials.",
+  shopSub:"Find the pieces that complete your look.",
+  all:"All",shirts:"T-shirts",shoes:"Sneakers",slippers:"Slides",pants:"Pants",shorts:"Shorts",
+  search:"Search products...",sortFeatured:"Featured",sortLow:"Price: low to high",
+  sortHigh:"Price: high to low",sortName:"Name",promoEyebrow:"THE EVERYDAY COLLECTION",
+  promoTitle:"Wear it your way.<br>Own your look.",
+  promoText:"From everyday essentials to standout details, find pieces that fit your day and express you.",
+  shopCollection:"Shop collection ↙",whyEyebrow:"THE SHUBRA STANDARD",
+  whyTitle:"A simpler experience. Stronger style.",whySub:"Little details make shopping better.",
+  feature1Title:"Curated variety",feature1Text:"Clothing and footwear to complete your everyday look.",
+  feature2Title:"Easy ordering",feature2Text:"Build your cart and send your order details through WhatsApp.",
+  feature3Title:"Clear details",feature3Text:"Review sizes, quantities and prices before placing your order.",
+  newsletterEyebrow:"STAY IN THE LOOP",newsletterTitle:"Be the first to know.",
+  newsletterText:"Want to know what's new? Contact us on WhatsApp for new arrivals and offers.",
+  contactUs:"Contact us ↗",footerDesc:"Everyday style, versatile picks and a simple shopping experience.",
+  quickLinks:"Quick links",contact:"Contact",browseProducts:"Browse products",
+  adminLogin:"Store admin",rights:"All rights reserved.",productDetails:"Product details",
+  yourCart:"Your cart",yourWishlist:"Your wishlist",adminTitle:"Store administration",
+  addCart:"Add to cart",chooseSize:"Choose size",quantity:"Quantity",stock:"In stock",
+  description:"Description",remove:"Remove",subtotal:"Subtotal",checkout:"Order via WhatsApp",
+  emptyCart:"Your cart is empty.",emptyWish:"Your wishlist is empty.",
+  continueShopping:"Continue shopping",added:"Added to cart",saved:"Added to wishlist",
+  removed:"Removed",outStock:"Currently unavailable",selectSize:"Please choose a size first",
+  adminWarning:"This admin panel is a browser-only demo. Do not use it to protect data or operate a live store.",
+  adminPin:"Enter demo admin PIN",login:"Login",cancel:"Cancel",productsAdmin:"Manage products",
+  addProduct:"Add product",edit:"Edit",delete:"Delete",productName:"Product name in English",
+  productArabic:"Product name in Arabic",category:"Category",price:"Price in EGP",oldPrice:"Previous price",
+  imageUrl:"Image URL",sizesInput:"Sizes separated by commas",stockInput:"Stock quantity",
+  tagInput:"Product badge (optional)",save:"Save product",savedProduct:"Product saved",
+  deletedProduct:"Product deleted",confirmDelete:"Are you sure you want to delete this product?",
+  noResults:"No products match your search.",stockLow:"Stock",items:"Products",
+  productCount:"products",cartCount:"items",emptyAdmin:"No products to display.",
+  orderName:"Full name",phone:"Mobile number",address:"Full address",notes:"Order notes",
+  sendOrder:"Prepare order on WhatsApp",orderForm:"Order details",
+  orderHint:"WhatsApp will open with your order details. You send the message and confirm the order yourself.",
+  fillRequired:"Enter your name, phone number and address.",adminAccess:"Admin access",
+  imageError:"Image unavailable",sortNewest:"Newest",clearCart:"Clear cart",
+  orderSummary:"Order summary",total:"Total",size:"Size",unknown:"Not specified",
+  cat_shirt:"T-shirts",cat_shoe:"Sneakers",cat_slipper:"Slides",cat_pants:"Pants",cat_shorts:"Shorts",
+  tag_BESTSELLER:"Bestseller",tag_NEW:"New",tag_POPULAR:"Popular",tag_SALE:"Sale",tag_LIMITED:"Limited"
+ }
 };
-let products=readStore("shubra_products",defaultProducts);
+
+function readStore(key,fallback){
+ try{
+  const value=localStorage.getItem(key);
+  return value===null?fallback:JSON.parse(value);
+ }catch(e){return fallback}
+}
+function saveStore(key,value){
+ try{localStorage.setItem(key,JSON.stringify(value))}
+ catch(e){showToast("تعذر الحفظ في المتصفح")}
+}
+
+let lang=readStore("shubra_lang","ar");
+let theme=readStore("shubra_theme","light");
+let products=readStore("shubra_products",SEED_PRODUCTS);
 let cart=readStore("shubra_cart",[]);
 let wishlist=readStore("shubra_wishlist",[]);
-let activeCategory="الكل";
-let searchTerm="";
-let selectedProduct=null;
-let selectedSize="";
-let toastTimer;
+let activeCategory="all";
+let currentProductId=null;
+let currentSize="";
+let adminEditingId=null;
 
-const settings=readStore("shubra_settings",{
- whatsapp:"201000000000",
- facebook:"",
- storeName:"SHUBRA STORE"
-});
-
-function saveData(){
- localStorage.setItem("shubra_products",JSON.stringify(products));
- localStorage.setItem("shubra_cart",JSON.stringify(cart));
- localStorage.setItem("shubra_wishlist",JSON.stringify(wishlist));
+function t(key){return (I18N[lang]&&I18N[lang][key])||I18N.ar[key]||key}
+function productName(p){return lang==="ar"?(p.ar||p.name):p.name}
+function money(value){
+ return new Intl.NumberFormat(lang==="ar"?"ar-EG":"en-EG",{maximumFractionDigits:0}).format(Number(value)||0)+" "+(lang==="ar"?"ج.م":"EGP")
 }
-function money(n){return Number(n).toLocaleString("en-US")+" EGP"}
-function toast(message){
+function categoryName(cat){return t("cat_"+cat)}
+function waUrl(message){
+ const phone=STORE.whatsapp.replace(/\D/g,"");
+ return "https://wa.me/"+phone+"?text="+encodeURIComponent(message)
+}
+function isWhatsAppConfigured(){return /^\d{10,15}$/.test(STORE.whatsapp.replace(/\D/g,""))&&STORE.whatsapp!=="201000000000"}
+function setWhatsAppLinks(){
+ const url=waUrl(lang==="ar"?"أهلًا SHUBRA STORE، عايز أستفسر عن المنتجات.":"Hi SHUBRA STORE, I'd like to ask about your products.");
+ ["newsletterBtn","footerWhatsapp","floatingWhatsapp"].forEach(id=>{
+  const el=document.getElementById(id);if(el)el.href=url;
+ });
+}
+function showToast(message){
  const el=document.getElementById("toast");
  el.textContent=message;el.classList.add("show");
- clearTimeout(toastTimer);
- toastTimer=setTimeout(()=>el.classList.remove("show"),2500);
+ clearTimeout(showToast.timer);
+ showToast.timer=setTimeout(()=>el.classList.remove("show"),2300);
+}
+function closeModal(id){document.getElementById(id).classList.remove("open")}
+function openModal(id){document.getElementById(id).classList.add("open")}
+function outsideClose(event,id){if(event.target.id===id)closeModal(id)}
+function setImageFallback(img){
+ img.onerror=function(){this.onerror=null;this.src="data:image/svg+xml;charset=UTF-8,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="500" height="600"><rect width="100%" height="100%" fill="#e7e5dc"/><text x="50%" y="50%" text-anchor="middle" font-family="Arial" font-size="22" fill="#666">SHUBRA STORE</text></svg>')};
+}
+function normalizeProduct(p){
+ return {...p,id:Number(p.id)||Date.now(),name:String(p.name||"New product"),ar:String(p.ar||p.name||"منتج جديد"),
+  cat:["shirt","shoe","slipper","pants","shorts"].includes(p.cat)?p.cat:"shirt",
+  price:Math.max(0,Number(p.price)||0),old:Math.max(0,Number(p.old)||0),
+  image:String(p.image||IMAGES.shirt1),sizes:Array.isArray(p.sizes)?p.sizes:["M","L","XL"],
+  stock:Math.max(0,Number(p.stock)||0),tag:String(p.tag||""),featured:!!p.featured,desc:String(p.desc||"")};
+}
+function persistProducts(){saveStore("shubra_products",products)}
+function persistCart(){saveStore("shubra_cart",cart)}
+function persistWishlist(){saveStore("shubra_wishlist",wishlist)}
+function syncCounts(){
+ document.getElementById("cartCount").textContent=cart.reduce((n,x)=>n+x.qty,0);
+ document.getElementById("wishCount").textContent=wishlist.length;
+}
+function setTheme(){
+ document.documentElement.dataset.theme=theme==="dark"?"dark":"light";
+ document.getElementById("themeBtn").textContent=theme==="dark"?"☀":"☾";
+ document.querySelector('meta[name="theme-color"]').content=theme==="dark"?"#11120f":"#f5f3ee";
+ saveStore("shubra_theme",theme);
+}
+function setLanguage(){
+ document.documentElement.lang=lang;
+ document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+ document.title=lang==="ar"?"SHUBRA STORE | ستايلك هويتك":"SHUBRA STORE | Wear Your Identity";
+ document.getElementById("langBtn").textContent=lang==="ar"?"EN / عربي":"عربي / EN";
+ document.querySelectorAll("[data-i]").forEach(el=>{
+  const value=I18N[lang][el.dataset.i];
+  if(value!==undefined)el.innerHTML=value;
+ });
+ document.getElementById("searchInput").placeholder=t("search");
+ setWhatsAppLinks();
+ renderCategories();renderProducts();renderCart();renderWishlist();syncCounts();
+ saveStore("shubra_lang",lang);
+}
+function renderCategories(){
+ const items=[
+  ["shirt",t("shirts"),IMAGES.shirt1],["shoe",t("shoes"),IMAGES.shoe1],
+  ["slipper",t("slippers"),IMAGES.slipper],["pants",t("pants"),IMAGES.pants],
+  ["shorts",t("shorts"),IMAGES.shorts]
+ ];
+ document.getElementById("categoryGrid").innerHTML=items.map(([cat,name,image])=>`
+ <button class="category" onclick="selectCategory('${cat}')">
+  <img src="${image}" alt="${name}" loading="lazy" onerror="this.style.opacity='.3'">
+  <div class="category-info"><strong>${name}</strong><small>${products.filter(p=>p.cat===cat).length} ${t("items")}</small></div>
+ </button>`).join("");
+}
+function selectCategory(cat){
+ activeCategory=cat;
+ document.querySelectorAll("[data-cat]").forEach(b=>b.classList.toggle("active",b.dataset.cat===cat));
+ renderProducts();
+ document.getElementById("shop").scrollIntoView({behavior:"smooth"});
 }
 function renderProducts(){
- let list=products.filter(p=>(activeCategory==="الكل"||p.category===activeCategory)&&
- (p.name+" "+p.category).toLowerCase().includes(searchTerm.toLowerCase()));
+ let list=[...products].filter(p=>p.stock>=0);
+ const query=document.getElementById("searchInput").value.trim().toLowerCase();
+ if(activeCategory!=="all")list=list.filter(p=>p.cat===activeCategory);
+ if(query)list=list.filter(p=>(p.name+" "+p.ar+" "+p.cat).toLowerCase().includes(query));
  const sort=document.getElementById("sortSelect").value;
  if(sort==="low")list.sort((a,b)=>a.price-b.price);
  if(sort==="high")list.sort((a,b)=>b.price-a.price);
- if(sort==="name")list.sort((a,b)=>a.name.localeCompare(b.name));
- document.querySelectorAll(".filter-btn").forEach(b=>b.classList.toggle("active",b.dataset.category===activeCategory));
- const grid=document.getElementById("productsGrid");
- if(!list.length){grid.innerHTML='<div class="no-results">مفيش منتجات مطابقة لبحثك حاليًا.</div>';return}
- grid.innerHTML=list.map(p=>`
- <article class="product-card">
-  <div class="product-image">
-   <img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}" loading="lazy">
-   ${p.badge?`<span class="product-badge">${escapeHTML(p.badge)}</span>`:""}
-   <button class="wish-btn ${wishlist.includes(p.id)?"active":""}" onclick="toggleWish(${p.id})">${wishlist.includes(p.id)?"♥":"♡"}</button>
-   <button class="quick-add" onclick="openProduct(${p.id})">اختار المقاس وأضف للسلة +</button>
-  </div>
-  <div class="product-info">
-   <div class="product-category">${escapeHTML(p.category)}</div>
-   <div class="product-name">${escapeHTML(p.name)}</div>
-   <div class="product-bottom"><span class="price">${money(p.price)}</span>
-   ${p.oldPrice?`<span class="old-price">${money(p.oldPrice)}</span>`:""}</div>
-  </div>
- </article>`).join("");
+ if(sort==="name")list.sort((a,b)=>productName(a).localeCompare(productName(b),lang));
+ if(sort==="featured")list.sort((a,b)=>Number(b.featured)-Number(a.featured));
+ document.getElementById("productCount").textContent=list.length+" "+(lang==="ar"?"منتج":"PRODUCTS");
+ const grid=document.getElementById("productGrid");
+ if(!list.length){grid.innerHTML=`<div class="no-results">${t("noResults")}</div>`;return}
+ grid.innerHTML=list.map(p=>{
+  const fav=wishlist.includes(p.id);
+  return `<article class="product-card">
+   <div class="product-image">
+    <img src="${escapeAttr(p.image)}" alt="${escapeAttr(productName(p))}" loading="lazy" onerror="setImageFallback(this)">
+    ${p.tag?`<span class="tag">${escapeHtml(t("tag_"+p.tag)||p.tag)}</span>`:""}
+    <button class="heart ${fav?"active":""}" onclick="toggleWishlist(${p.id})" aria-label="Wishlist">${fav?"♥":"♡"}</button>
+    <button class="quick-add" onclick="openProduct(${p.id})">${t("addCart")} ＋</button>
+   </div>
+   <div class="product-meta"><div><h3 class="product-name">${escapeHtml(productName(p))}</h3><p class="product-desc">${escapeHtml(categoryName(p.cat))}</p></div>
+   <div class="price">${money(p.price)}${p.old>p.price?`<span class="old-price">${money(p.old)}</span>`:""}</div></div>
+   <div class="rating">✳ <span>${p.stock>0?t("stock")+": "+p.stock:t("outStock")}</span></div>
+  </article>`;
+ }).join("");
 }
-function escapeHTML(value){
+function escapeHtml(value){
  return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 }
-function filterCategory(category){
- activeCategory=category;searchTerm="";renderProducts();
- document.getElementById("products").scrollIntoView({behavior:"smooth"});
-}
-function resetFilters(){activeCategory="الكل";searchTerm="";renderProducts()}
-function searchProducts(value){searchTerm=value;activeCategory="الكل";renderProducts()}
-function openSearch(){
- document.getElementById("searchBox").classList.add("open");
- document.getElementById("searchInput").focus();
-}
-function closeSearch(){document.getElementById("searchBox").classList.remove("open")}
-function toggleWish(id){
- wishlist=wishlist.includes(id)?wishlist.filter(x=>x!==id):[...wishlist,id];
- saveData();renderProducts();updateCounts();
- toast(wishlist.includes(id)?"اتضاف للمفضلة ♡":"اتشال من المفضلة");
-}
-function updateCounts(){
- document.getElementById("cartCount").textContent=cart.reduce((s,x)=>s+x.qty,0);
- document.getElementById("wishCount").textContent=wishlist.length;
-}
+function escapeAttr(value){return escapeHtml(value)}
 function openProduct(id){
- selectedProduct=products.find(p=>p.id===id);
- if(!selectedProduct)return;
- selectedSize=selectedProduct.sizes?.[0]||"ONE SIZE";
- const p=selectedProduct;
- document.getElementById("productModalContent").innerHTML=`
- <button class="modal-close" onclick="closeProduct()">×</button>
- <img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}">
- <div class="product-modal-info">
-  <div class="kicker">${escapeHTML(p.category)}</div>
-  <h2>${escapeHTML(p.name)}</h2>
-  <div class="price">${money(p.price)}</div>
-  <p>${escapeHTML(p.description||"منتج من مجموعة SHUBRA STORE.")}</p>
-  <span class="field-label">اختار المقاس</span>
-  <div class="size-options">${(p.sizes||["ONE SIZE"]).map(s=>`<button class="size-option ${s===selectedSize?"selected":""}" onclick="selectSize('${escapeHTML(s)}',this)">${escapeHTML(s)}</button>`).join("")}</div>
-  <label class="field-label">الكمية</label>
-  <input class="quantity-input" type="number" id="productQty" min="1" max="20" value="1">
-  <button class="btn" onclick="addToCart()">أضف إلى السلة — ${money(p.price)}</button>
+ const p=products.find(x=>x.id===id);if(!p)return;
+ currentProductId=id;currentSize=p.sizes[0]||"";
+ document.getElementById("productDetailContent").innerHTML=`
+ <div class="product-detail">
+  <img src="${escapeAttr(p.image)}" alt="${escapeAttr(productName(p))}" onerror="setImageFallback(this)">
+  <div>
+   <div class="eyebrow">${escapeHtml(categoryName(p.cat))}</div>
+   <h3>${escapeHtml(productName(p))}</h3>
+   <div class="price" style="font-size:19px">${money(p.price)} ${p.old>p.price?`<span class="old-price">${money(p.old)}</span>`:""}</div>
+   <p>${escapeHtml(p.desc||t("description"))}</p>
+   <div class="field"><label>${t("chooseSize")}</label><div class="size-options">${p.sizes.map(s=>`<button class="size-option ${s===currentSize?"active":""}" onclick="chooseSize('${escapeAttr(s)}',this)">${escapeHtml(s)}</button>`).join("")}</div></div>
+   <div class="field"><label>${t("quantity")}</label><input id="detailQty" type="number" min="1" max="${Math.max(1,p.stock)}" value="1" ${p.stock<1?"disabled":""}></div>
+   <div class="notice">${t("stock")}: ${p.stock}</div>
+   <button class="btn btn-accent full" onclick="addCurrentToCart()" ${p.stock<1?"disabled":""}>${t("addCart")} ＋</button>
+   <button class="btn btn-outline full" style="margin-top:9px" onclick="toggleWishlist(${p.id})">♡ ${t("yourWishlist")}</button>
+  </div>
  </div>`;
- document.getElementById("productModal").classList.add("open");
- document.body.classList.add("no-scroll");
+ openModal("productOverlay");
 }
-function selectSize(size,button){
- selectedSize=size;
- document.querySelectorAll(".size-option").forEach(b=>b.classList.remove("selected"));
- button.classList.add("selected");
+function chooseSize(size,button){
+ currentSize=size;
+ button.parentElement.querySelectorAll(".size-option").forEach(b=>b.classList.toggle("active",b===button));
 }
-function closeProduct(){
- document.getElementById("productModal").classList.remove("open");
- document.body.classList.remove("no-scroll");
+function addCurrentToCart(){
+ const p=products.find(x=>x.id===currentProductId);if(!p)return;
+ if(!currentSize){showToast(t("selectSize"));return}
+ const qty=Math.max(1,parseInt(document.getElementById("detailQty").value)||1);
+ const found=cart.find(x=>x.id===p.id&&x.size===currentSize);
+ const inCart=found?found.qty:0;
+ if(p.stock<=0||inCart+qty>p.stock){showToast(t("outStock"));return}
+ if(found)found.qty+=qty;else cart.push({id:p.id,size:currentSize,qty});
+ persistCart();syncCounts();renderCart();closeModal("productOverlay");showToast(t("added"));
 }
-function addToCart(){
- if(!selectedProduct)return;
- const qty=Math.max(1,Math.min(20,Number(document.getElementById("productQty").value)||1));
- const found=cart.find(x=>x.id===selectedProduct.id&&x.size===selectedSize);
- if(found)found.qty+=qty;
- else cart.push({id:selectedProduct.id,size:selectedSize,qty});
- saveData();updateCounts();closeProduct();toast("اتضاف المنتج لسلة المشتريات");
+function quickAdd(id){openProduct(id)}
+function toggleWishlist(id){
+ if(wishlist.includes(id)){wishlist=wishlist.filter(x=>x!==id);showToast(t("removed"))}
+ else{wishlist.push(id);showToast(t("saved"))}
+ persistWishlist();syncCounts();renderProducts();renderWishlist();
+ if(document.getElementById("wishOverlay").classList.contains("open"))openWishlist();
 }
-function openCart(){
- closeDrawers();
- document.getElementById("overlay").classList.add("open");
- document.getElementById("cartDrawer").classList.add("open");
- renderCart();
+function openWishlist(){
+ renderWishlist();openModal("wishOverlay");
 }
-function showWishlist(){
- closeDrawers();
- document.getElementById("overlay").classList.add("open");
- document.getElementById("wishDrawer").classList.add("open");
- renderWishlist();
+function renderWishlist(){
+ const target=document.getElementById("wishContent");if(!target)return;
+ const list=wishlist.map(id=>products.find(p=>p.id===id)).filter(Boolean);
+ if(!list.length){target.innerHTML=`<div class="empty">${t("emptyWish")}<br><br><button class="btn btn-accent" onclick="closeModal('wishOverlay');document.getElementById('shop').scrollIntoView()">${t("continueShopping")}</button></div>`;return}
+ target.innerHTML=list.map(p=>`<div class="cart-item">
+ <img src="${escapeAttr(p.image)}" alt="" onerror="setImageFallback(this)">
+ <div><h4>${escapeHtml(productName(p))}</h4><small>${money(p.price)}</small><div class="qty"><button onclick="openProduct(${p.id});closeModal('wishOverlay')">＋</button><button onclick="toggleWishlist(${p.id})">×</button></div></div>
+ </div>`).join("");
 }
-function closeDrawers(){
- document.getElementById("overlay").classList.remove("open");
- document.getElementById("cartDrawer").classList.remove("open");
- document.getElementById("wishDrawer").classList.remove("open");
-}
+function openCart(){renderCart();openModal("cartOverlay")}
 function renderCart(){
- const el=document.getElementById("cartItems");
- if(!cart.length){el.innerHTML='<div class="empty-state">سلتك لسه فاضية.<br><br>ابدأ اختار القطع اللي بتحبها ♡</div>';document.getElementById("cartTotal").textContent=money(0);return}
+ const target=document.getElementById("cartContent");if(!target)return;
+ cart=cart.filter(item=>products.some(p=>p.id===item.id));
+ if(!cart.length){target.innerHTML=`<div class="empty">${t("emptyCart")}<br><br><button class="btn btn-accent" onclick="closeModal('cartOverlay');document.getElementById('shop').scrollIntoView()">${t("continueShopping")}</button></div>`;return}
  let total=0;
- el.innerHTML=cart.map((item,index)=>{
+ const rows=cart.map((item,index)=>{
   const p=products.find(x=>x.id===item.id);if(!p)return "";
   total+=p.price*item.qty;
   return `<div class="cart-item">
-   <img src="${escapeHTML(p.image)}" alt="">
-   <div><h4>${escapeHTML(p.name)}</h4><small>المقاس: ${escapeHTML(item.size)}</small><p>${money(p.price)}</p>
-    <div class="qty"><button onclick="changeQty(${index},-1)">−</button><span>${item.qty}</span><button onclick="changeQty(${index},1)">+</button></div>
-   </div>
-   <button class="remove-item" onclick="removeCartItem(${index})">حذف</button>
+   <img src="${escapeAttr(p.image)}" alt="" onerror="setImageFallback(this)">
+   <div><h4>${escapeHtml(productName(p))}</h4><small>${t("size")}: ${escapeHtml(item.size)} · ${money(p.price)}</small>
+   <div class="qty"><button onclick="changeQty(${index},-1)">−</button><span>${item.qty}</span><button onclick="changeQty(${index},1)">+</button></div></div>
+   <button class="small-btn danger" onclick="removeCartItem(${index})">${t("remove")}</button>
   </div>`;
  }).join("");
- document.getElementById("cartTotal").textContent=money(total);
+ target.innerHTML=`${rows}
+ <div class="cart-summary"><span>${t("subtotal")}</span><span>${money(total)}</span></div>
+ <button class="btn btn-accent full" onclick="showCheckout()">${t("checkout")} ↗</button>
+ <button class="btn btn-outline full" style="margin-top:9px" onclick="clearCart()">${t("clearCart")}</button>`;
 }
-function changeQty(index,amount){
- if(!cart[index])return;
- cart[index].qty+=amount;
- if(cart[index].qty<=0)cart.splice(index,1);
- saveData();renderCart();updateCounts();
+function changeQty(index,delta){
+ const item=cart[index];if(!item)return;
+ const p=products.find(x=>x.id===item.id);if(!p)return;
+ const next=item.qty+delta;
+ if(next<=0){removeCartItem(index);return}
+ if(next>p.stock){showToast(t("outStock"));return}
+ item.qty=next;persistCart();syncCounts();renderCart();
 }
-function removeCartItem(index){cart.splice(index,1);saveData();renderCart();updateCounts()}
-function renderWishlist(){
- const el=document.getElementById("wishItems");
- const list=products.filter(p=>wishlist.includes(p.id));
- if(!list.length){el.innerHTML='<div class="empty-state">لسه مفيش منتجات في المفضلة ♡</div>';return}
- el.innerHTML=list.map(p=>`<div class="cart-item">
- <img src="${escapeHTML(p.image)}" alt="">
- <div><h4>${escapeHTML(p.name)}</h4><p>${money(p.price)}</p><button class="remove-item" onclick="toggleWish(${p.id});renderWishlist()">إزالة من المفضلة</button></div>
- <button class="remove-item" onclick="closeDrawers();openProduct(${p.id})">عرض</button></div>`).join("");
+function removeCartItem(index){cart.splice(index,1);persistCart();syncCounts();renderCart();showToast(t("removed"))}
+function clearCart(){cart=[];persistCart();syncCounts();renderCart()}
+function showCheckout(){
+ if(!cart.length)return;
+ const target=document.getElementById("cartContent");
+ const total=cart.reduce((sum,item)=>sum+(products.find(p=>p.id===item.id)?.price||0)*item.qty,0);
+ target.innerHTML=`<h3>${t("orderForm")}</h3><div class="notice">${t("orderHint")}</div>
+ <form id="checkoutForm">
+  <div class="field"><label>${t("orderName")} *</label><input name="customer" required maxlength="100" autocomplete="name"></div>
+  <div class="field"><label>${t("phone")} *</label><input name="phone" required type="tel" maxlength="25" autocomplete="tel"></div>
+  <div class="field"><label>${t("address")} *</label><textarea name="address" required maxlength="400" autocomplete="street-address"></textarea></div>
+  <div class="field"><label>${t("notes")}</label><textarea name="notes" maxlength="400"></textarea></div>
+  <div class="cart-summary"><span>${t("total")}</span><span>${money(total)}</span></div>
+  <button class="btn btn-accent full" type="submit">${t("sendOrder")} ↗</button>
+ </form>`;
+ document.getElementById("checkoutForm").addEventListener("submit",submitOrder);
 }
-function checkout(){
- if(!cart.length){toast("السلة فاضية!");return}
- const phone=settings.whatsapp;
- if(!phone||phone==="201000000000"){toast("أضف رقم واتساب المتجر الحقيقي من إعدادات الربط أولاً");return}
- let total=0;
- let lines=cart.map(item=>{
-  const p=products.find(x=>x.id===item.id);if(!p)return "";
-  total+=p.price*item.qty;
-  return `• ${p.name} | المقاس: ${item.size} | الكمية: ${item.qty} | ${money(p.price*item.qty)}`;
- }).filter(Boolean);
- const message=`مرحبًا SHUBRA STORE 👋\nعايز أعمل الطلب التالي:\n\n${lines.join("\n")}\n\nالإجمالي: ${money(total)}\n\nالاسم:\nالعنوان:\nرقم الهاتف:`;
- window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`,"_blank");
-}
-function openAdmin(){
- const password=prompt("أدخل كلمة مرور لوحة الإدارة التجريبية:");
- if(password!=="shubra2026"){if(password!==null)toast("كلمة المرور غير صحيحة");return}
- document.getElementById("adminModal").classList.add("open");
- document.body.classList.add("no-scroll");
- renderAdminProducts();
-}
-function closeAdmin(){
- document.getElementById("adminModal").classList.remove("open");
- document.body.classList.remove("no-scroll");
-}
-document.getElementById("adminForm").addEventListener("submit",function(e){
- e.preventDefault();
- const name=document.getElementById("pName").value.trim();
- const price=Number(document.getElementById("pPrice").value);
- const image=document.getElementById("pImage").value.trim();
- if(!name||price<=0||!image){toast("راجع بيانات المنتج");return}
- products.unshift({
-  id:Date.now(),name,price,category:document.getElementById("pCategory").value,
-  sizes:document.getElementById("pSizes").value.split(",").map(x=>x.trim()).filter(Boolean),
-  image,badge:"NEW",description:document.getElementById("pDescription").value
- });
- saveData();renderProducts();renderAdminProducts();this.reset();toast("تمت إضافة المنتج");
-});
-function renderAdminProducts(){
- document.getElementById("adminProducts").innerHTML=products.map(p=>`
- <div class="admin-product">
-  <img src="${escapeHTML(p.image)}" alt="">
-  <div><strong>${escapeHTML(p.name)}</strong><br>${money(p.price)}</div>
-  <button onclick="editProduct(${p.id})">تعديل</button>
-  <button onclick="deleteProduct(${p.id})">حذف</button>
- </div>`).join("");
-}
-function editProduct(id){
- const p=products.find(x=>x.id===id);if(!p)return;
- const name=prompt("اسم المنتج:",p.name);if(name===null)return;
- const price=Number(prompt("السعر:",p.price));if(!price||price<1){toast("السعر غير صحيح");return}
- const image=prompt("رابط الصورة:",p.image);if(image===null)return;
- p.name=name.trim();p.price=price;p.image=image.trim();
- saveData();renderProducts();renderAdminProducts();toast("تم تعديل المنتج");
-}
-function deleteProduct(id){
- if(!confirm("متأكد إنك عايز تحذف المنتج؟"))return;
- products=products.filter(p=>p.id!==id);
- cart=cart.filter(x=>x.id!==id);wishlist=wishlist.filter(x=>x!==id);
- saveData();renderProducts();renderAdminProducts();updateCounts();toast("تم حذف المنتج");
-}
-function scrollToSection(id){document.getElementById(id)?.scrollIntoView({behavior:"smooth"})}
-document.getElementById("footerWhatsapp").href=`https://wa.me/${settings.whatsapp}`;
-document.getElementById("footerFacebook").href=settings.facebook||"#";
-
-renderProducts();updateCounts();
-</script>
-</body>
-</html>
+function submitOrder(event){
+ event.preventDefault();
+ const form=new FormData(event.currentTarget);
+ const customer=String(form.get("customer")||"").trim();
+ const phone=String(form.get("phone")||"").trim();
+ const address=String(form.get("address")||"").trim();
+ const notes=String(form.get("notes")||"").trim();
+ if(!customer||!phone||!address){showToast(t("fillRequired"));return}
+ const lines=cart.map(item=>{
+  const p=product
